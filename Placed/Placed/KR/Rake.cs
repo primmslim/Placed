@@ -18,6 +18,7 @@ namespace Placed.KR
         public RakeStatus Status;
         public string PlaceLocation { get; set; }
 
+        public Guid ID { get; private set; }
 
         public enum RakeStatus
         {
@@ -28,7 +29,7 @@ namespace Placed.KR
 
         public Rake()
         {
-           
+            this.ID = Guid.NewGuid();
 
         }
 

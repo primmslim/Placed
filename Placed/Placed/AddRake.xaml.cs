@@ -8,6 +8,7 @@ using Xamarin.Forms.Xaml;
 using ZXing.Net.Mobile.Forms;
 using ZXing;
 using Placed.KR;
+using System.Runtime.Serialization;
 
 namespace Placed
 {

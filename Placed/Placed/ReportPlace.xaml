@@ -7,7 +7,7 @@
             <StackLayout Orientation="Horizontal">
                 <Label Text="Siding Location" VerticalOptions="Center"/>
                 <Button x:Name="btnScanLocation" Text="Scan Location Code" HorizontalOptions="EndAndExpand" Clicked="StartScan_Clicked"/>
-                <Label x:Name="lblLocationCode" HorizontalOptions="EndAndExpand" IsVisible="False"/>
+                <Label x:Name="lblLocationCode"  IsVisible="False" HorizontalOptions="EndAndExpand" FontSize="Medium"/>
             </StackLayout>
             
             

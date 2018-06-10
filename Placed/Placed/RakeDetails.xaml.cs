@@ -45,7 +45,7 @@ namespace Placed
 
         private void btnPlace_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new ReportPlace(ref rake));
+            Navigation.PushAsync(new ReportPlace(rake));
         }
     }
 }

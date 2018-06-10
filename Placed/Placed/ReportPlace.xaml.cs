@@ -17,7 +17,7 @@ namespace Placed
 	{
         Rake rake;
         bool IsLate;
-		public ReportPlace (ref Rake _rake)
+		public ReportPlace (Rake _rake)
 		{
 			InitializeComponent ();
             FillPicker();
@@ -67,9 +67,24 @@ namespace Placed
 
             }
 
-            rake.Status = (IsLate) ? Rake.RakeStatus.PlacedLate : Rake.RakeStatus.PlacedOnTime;
-            rake.LateReason = (pckLateReason.SelectedItem.ToString() == "Other") ? txtOther.Text : pckLateReason.SelectedItem.ToString();
-            MessagingCenter.Send<ContentPage>(this, "SaveRakeList");
+            if (IsLate)
+            {
+                rake.Status = Rake.RakeStatus.PlacedLate;
+                rake.LateReason = (pckLateReason.SelectedItem?.ToString() == "Other") ? txtOther.Text : pckLateReason.SelectedItem.ToString();
+            }
+            else
+            {
+                rake.Status = Rake.RakeStatus.PlacedOnTime;
+            }
+
+            var rl = new RakeList();
+            rl.PopulateList();
+            var removed = rl.rakes.Single(x => x.ID == rake.ID);
+            rl.rakes.Remove(removed);
+            rl.rakes.Add(rake);
+            rl.SaveList();
+
+            MessagingCenter.Send<ContentPage>(this, "RefreshMainPage");
             Navigation.PopAsync();
             Navigation.PopAsync();
         }
