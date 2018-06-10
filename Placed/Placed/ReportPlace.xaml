@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Placed.ReportPlace">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center">
+            <Picker x:Name="pckLateReason" HorizontalOptions="FillAndExpand" Margin="20,0,0,20" SelectedIndexChanged="pckLateReason_SelectedIndexChanged" Title="Select Late Reason"/>
+            <Entry x:Name="txtOther" IsVisible="False" HorizontalOptions="FillAndExpand" Placeholder="Enter Other Reason Here" PlaceholderColor="Red"/>
+            <Button Text="Complete Placement" Clicked="Button_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

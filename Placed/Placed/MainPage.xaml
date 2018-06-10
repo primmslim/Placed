@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Placed"
+             x:Class="Placed.MainPage">
+
+    <StackLayout>
+        <Label Margin="0,20,0,0" HorizontalOptions="Center" FontSize="Large" Text="Rakes"/>
+
+        <ListView x:Name="RakeList" BackgroundColor="DarkGray" ItemTapped="RakeList_ItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding DisplayName}">
+                    </TextCell>
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackLayout Orientation="Horizontal">
+        <Button x:Name="LoadData" 
+                VerticalOptions="Center"
+                HorizontalOptions="StartAndExpand"
+                Text="Test Scanner"
+                Clicked="LoadData_Clicked"/>
+            <Button x:Name="AddNewRake"
+                HorizontalOptions="End"
+                VerticalOptions="EndAndExpand"
+                Text="Add New Rake"
+                />
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>
