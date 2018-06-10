@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Placed.KR;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -7,16 +8,31 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using ZXing.Net.Mobile.Forms;
 
 namespace Placed
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ReportPlace : ContentPage
 	{
-		public ReportPlace ()
+        Rake rake;
+        bool IsLate;
+		public ReportPlace (ref Rake _rake)
 		{
 			InitializeComponent ();
             FillPicker();
+            rake = _rake;
+            rake.PlacementCompletedOn = DateTime.Now;
+            if (rake.PlacementCompletedOn > rake.PlacementDeadline)
+            {
+                pckLateReason.IsVisible = true;
+                IsLate = true;
+            }
+            else {
+                IsLate = false;
+                pckLateReason.IsVisible = false;
+            }
+
 		}
 
         void FillPicker()
@@ -31,16 +47,63 @@ namespace Placed
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-            if (pckLateReason.SelectedItem == null)
+            if (string.IsNullOrEmpty(rake.PlaceLocation))
             {
-                DisplayAlert("", "Please select a late reason", "Back");
+                DisplayAlert("", "Please scan a siding barcode", "Back");
                 return;
             }
-            if (pckLateReason.SelectedItem.ToString() == "Other" && txtOther.Text == null)
+            if (IsLate)
             {
-                DisplayAlert("", "Please type a reason in or select one from the list", "Back");
-                return;
+                if (pckLateReason.SelectedItem == null)
+                {
+                    DisplayAlert("", "Please select a late reason", "Back");
+                    return;
+                }
+                if (pckLateReason.SelectedItem.ToString() == "Other" && string.IsNullOrEmpty(txtOther.Text))
+                {
+                    DisplayAlert("", "Please type a reason in or select one from the list", "Back");
+                    return;
+                }
+
             }
+
+            rake.Status = (IsLate) ? Rake.RakeStatus.PlacedLate : Rake.RakeStatus.PlacedOnTime;
+            rake.LateReason = (pckLateReason.SelectedItem.ToString() == "Other") ? txtOther.Text : pckLateReason.SelectedItem.ToString();
+            MessagingCenter.Send<ContentPage>(this, "SaveRakeList");
+            Navigation.PopAsync();
+            Navigation.PopAsync();
+        }
+
+        private async void StartScan_Clicked(object sender, EventArgs e)
+        {
+            var scanPage = new ZXingScannerPage();
+            ZXingDefaultOverlay overlay = new ZXingDefaultOverlay();
+
+
+
+
+            await Navigation.PushAsync(scanPage);
+            scanPage.OnScanResult += (result) =>
+            {
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    if (!result.Text.Substring(0, 1).Equals("P"))
+                    {
+                        DisplayAlert(result.Text, "This is not a siding code, please try again", "OK");
+                        return;
+                    }
+
+                    await Navigation.PopAsync();
+                    rake.PlaceLocation = (result.Text.Substring(1, result.Text.Length - 1));
+                    btnScanLocation.IsVisible = false;
+                    lblLocationCode.IsVisible = true;
+                    lblLocationCode.Text = rake.PlaceLocation;
+                }
+                    );
+            };
+
+
+
         }
 
         private void pckLateReason_SelectedIndexChanged(object sender, EventArgs e)

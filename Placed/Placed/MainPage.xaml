@@ -7,7 +7,7 @@
     <StackLayout>
         <Label Margin="0,20,0,0" HorizontalOptions="Center" FontSize="Large" Text="Rakes"/>
 
-        <ListView x:Name="RakeList" BackgroundColor="DarkGray" ItemTapped="RakeList_ItemTapped">
+        <ListView x:Name="RakeList"  ItemTapped="RakeList_ItemTapped">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextCell Text="{Binding DisplayName}">
@@ -17,15 +17,13 @@
             </ListView.ItemTemplate>
         </ListView>
         <StackLayout Orientation="Horizontal">
-        <Button x:Name="LoadData" 
-                VerticalOptions="Center"
-                HorizontalOptions="StartAndExpand"
-                Text="Test Scanner"
-                Clicked="LoadData_Clicked"/>
+
             <Button x:Name="AddNewRake"
                 HorizontalOptions="End"
                 VerticalOptions="EndAndExpand"
                 Text="Add New Rake"
+                Clicked="AddNewRake_Clicked"
+                BackgroundColor="Green"
                 />
         </StackLayout>
     </StackLayout>

@@ -1,34 +1,45 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 
 namespace Placed.KR
 {
     public class Rake 
     {
-        public List<Wagon> Wagons = new List<Wagon>();
+        public ObservableCollection<Wagon> Wagons = new ObservableCollection<Wagon>();
 
         public DateTime CreatedOn { get; set; }
         public string DisplayName { get { return _DisplayName(); } }
         public DateTime PlacementCompletedOn { get; set; }
         public DateTime PlacementDeadline { get; set; }
         public string LateReason { get; set; }
+        public RakeStatus Status;
+        public string PlaceLocation { get; set; }
 
+
+        public enum RakeStatus
+        {
+            Pending,
+            PlacedOnTime,
+            PlacedLate
+        }
 
         public Rake()
         {
-            CreatedOn = DateTime.Now;
+           
 
         }
 
         private string _DisplayName()
         {
-            string FirstWagon, LastWagon,CreatedTime;
-            FirstWagon = Wagons.Find(x => x.MarshalOrder == 1).ID;
-            LastWagon = Wagons.Find(x => x.MarshalOrder == Wagons.Count).ID;
+            string FirstWagon, CreatedTime;
+            FirstWagon = Wagons[0]?.ID;
+            if (Wagons.Count>0) FirstWagon += string.Format(" and {0} others.",Wagons.Count-1)
+;
             CreatedTime = CreatedOn.ToShortTimeString();
-            return string.Format("{0} : {1} - {2}", CreatedTime, FirstWagon, LastWagon);
+            return string.Format("{0} : {1} - {2}", Status.ToString(), CreatedTime, FirstWagon);
 
         }
 

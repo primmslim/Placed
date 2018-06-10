@@ -8,6 +8,8 @@
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
             <Label x:Name="lblDeadline" HorizontalOptions="Center" FontSize="Medium" />
+            <Label x:Name="lblPlacedOn" HorizontalOptions="Center" FontSize="Medium" IsVisible="False"/>
+            <Label x:Name="lblLateReason" HorizontalOptions="Center" FontSize="Medium" IsVisible="False" />
             <ListView x:Name="WagonList" Margin="0,20,0,20" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -18,7 +20,7 @@
                 </ListView.ItemTemplate>
             </ListView>
 
-            <Button x:Name="btnPlace" HorizontalOptions="FillAndExpand" Clicked="btnPlace_Clicked" Text="Report Placement"/>
+            <Button IsVisible="False" x:Name="btnPlace" HorizontalOptions="FillAndExpand" Clicked="btnPlace_Clicked" Text="Report Placement"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

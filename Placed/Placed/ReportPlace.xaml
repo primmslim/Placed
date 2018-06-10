@@ -4,6 +4,13 @@
              x:Class="Placed.ReportPlace">
     <ContentPage.Content>
         <StackLayout VerticalOptions="Center">
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Siding Location" VerticalOptions="Center"/>
+                <Button x:Name="btnScanLocation" Text="Scan Location Code" HorizontalOptions="EndAndExpand" Clicked="StartScan_Clicked"/>
+                <Label x:Name="lblLocationCode" HorizontalOptions="EndAndExpand" IsVisible="False"/>
+            </StackLayout>
+            
+            
             <Picker x:Name="pckLateReason" HorizontalOptions="FillAndExpand" Margin="20,0,0,20" SelectedIndexChanged="pckLateReason_SelectedIndexChanged" Title="Select Late Reason"/>
             <Entry x:Name="txtOther" IsVisible="False" HorizontalOptions="FillAndExpand" Placeholder="Enter Other Reason Here" PlaceholderColor="Red"/>
             <Button Text="Complete Placement" Clicked="Button_Clicked"/>

@@ -9,10 +9,8 @@ namespace Placed.KR
         public string ID { get; set; }
         public int MarshalOrder { get; set; }
 
-        public Wagon(string _ID, int _MarshallOrder)
+        public Wagon()
         {
-            ID = _ID;
-            MarshalOrder = _MarshallOrder;
 
         }
     }
