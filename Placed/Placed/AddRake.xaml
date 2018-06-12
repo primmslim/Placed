@@ -1,26 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Add New Rake"
              x:Class="Placed.AddRake">
     <ContentPage.Content>
         <StackLayout>
-            <Button  x:Name="StartScan" Text="Add Wagon"  Clicked="StartScan_Clicked" HeightRequest="100" Margin="0,10,0,10"/>
+            <Button  x:Name="StartScan" Text="Add Wagon"  Clicked="StartScan_Clicked" Margin="0,10,0,10" Image="cam.png" HorizontalOptions="Center"/>
             <ListView x:Name="WagonList" HorizontalOptions="CenterAndExpand" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding ID}"/>
+                       
+                        <TextCell TextColor="{StaticResource PrimaryText}" Text="{Binding ID}"/>
 
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
             <Label Text="Placement Deadline" HorizontalOptions="CenterAndExpand"/>
             <StackLayout Orientation="Horizontal" Margin="0,20,0,30">
+                <Image Source="cal.png"/>
                 <DatePicker x:Name="dtpDeadlineDate" HorizontalOptions="FillAndExpand"/>
+                <Image Source="time.png"/>
                 <TimePicker x:Name="dtpDeadlineTime" HorizontalOptions="FillAndExpand"/>
             </StackLayout>
             
             
-            <Button x:Name="btnSave" Clicked="btnSave_Clicked" Text="Save Rake" HorizontalOptions="FillAndExpand" BackgroundColor="Green" Margin="0,0,0,10"/>
+            <Button x:Name="btnSave" Clicked="btnSave_Clicked" Text="Save Rake" HorizontalOptions="Center" Margin="0,0,0,10"/>
             
         </StackLayout>
     </ContentPage.Content>

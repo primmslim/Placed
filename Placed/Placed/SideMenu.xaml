@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Placed.SideMenu">
+    <MasterDetailPage.Master>
+        <ContentPage Padding="10" 
+                     BackgroundColor="{StaticResource DarkPrimary}"
+                     Title="Master Page">
+            <ContentPage.Content>
+                <StackLayout Margin="5,30,5,5">
+                    <Label Text="Placed" 
+                           TextColor="White"
+                           FontSize="Large"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           HeightRequest="50"
+                           FontAttributes="Bold"/>
+                    <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" BackgroundColor="{StaticResource Accent}"/>
+                    
+                    <Button Text="Home" x:Name="btnHome" Clicked="btnHome_Clicked" Style="{StaticResource SidebarButton}" Image="home.png" />
+                    <Button Text="About" x:Name="btnAbout" Clicked="btnAbout_Clicked" Style="{StaticResource SidebarButton}" Image="help.png"/>
+                    <Button Text="Debug" x:Name="btnDegub" Clicked="btnDegub_Clicked" Style="{StaticResource SidebarButton}" Image="code.png"/>
+                </StackLayout>
+            </ContentPage.Content>
+        </ContentPage>
+
+    </MasterDetailPage.Master>
+</MasterDetailPage>

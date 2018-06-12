@@ -2,15 +2,16 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Placed"
+             Title="Rake List" 
              x:Class="Placed.MainPage">
-
+            
     <StackLayout>
-        <Label Margin="0,20,0,0" HorizontalOptions="Center" FontSize="Large" Text="Rakes"/>
 
-        <ListView x:Name="RakeList"  ItemTapped="RakeList_ItemTapped">
+
+        <ListView x:Name="RakeList"  ItemTapped="RakeList_ItemTapped" ItemSelected="RakeList_ItemSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding DisplayName}">
+                    <TextCell Text="{Binding DisplayName}" TextColor="{StaticResource PrimaryText}">
                     </TextCell>
 
                 </DataTemplate>
@@ -19,11 +20,13 @@
         <StackLayout Orientation="Horizontal">
 
             <Button x:Name="AddNewRake"
-                HorizontalOptions="End"
-                VerticalOptions="EndAndExpand"
-                Text="Add New Rake"
+                Image="add.png"
+                FontSize="Large"
                 Clicked="AddNewRake_Clicked"
-                BackgroundColor="Green"
+                WidthRequest="40"
+                HeightRequest="40"
+                BorderRadius="20"
+                Margin="20,0,0,20"
                 />
         </StackLayout>
     </StackLayout>

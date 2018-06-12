@@ -8,7 +8,7 @@ namespace Placed.KR
     {
         public string ID { get; set; }
         public int MarshalOrder { get; set; }
-
+        public bool IsVisible { get; set; }
         public Wagon()
         {
 

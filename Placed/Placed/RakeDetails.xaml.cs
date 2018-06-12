@@ -14,11 +14,13 @@ namespace Placed
 	public partial class RakeDetails : ContentPage
 	{
         Rake rake;
+        Wagon _oldWagon;
 		public RakeDetails (Rake _rake)
 		{
 			InitializeComponent ();
             rake = _rake;
-            LblTitle.Text = "Rake Details";
+            lblCreatedOn.Text = string.Format("Created On: {0} {1}", rake.CreatedOn.ToShortTimeString(), rake.CreatedOn.ToShortDateString());
+
             lblDeadline.Text = string.Format("Placement Deadline: {0} {1}", rake.PlacementDeadline.ToShortTimeString(),rake.PlacementDeadline.ToShortDateString());
             WagonList.ItemsSource = rake.Wagons;
 
@@ -47,5 +49,10 @@ namespace Placed
         {
             Navigation.PushAsync(new ReportPlace(rake));
         }
+
+
+
+
     }
+
 }

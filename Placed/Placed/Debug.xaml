@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Placed.Debug">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Last Known"/>
+            <Label x:Name="lblLastKnown"/>
+            <Label Text="Lowest"/>
+            <Label x:Name="lblLowest"/>
+            <Label Text="Low"/>
+            <Label x:Name="lblLow"/>
+            <Label Text="Medium"/>
+            <Label x:Name="lblMedium"/>
+            <Label Text="High"/>
+            <Label x:Name="lblHigh"/>
+            <Label Text="Best"/>
+            <Label x:Name="lblBest"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

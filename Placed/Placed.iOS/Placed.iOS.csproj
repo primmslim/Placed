@@ -147,6 +147,9 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Xamarin.Essentials">
+      <Version>0.6.0-preview</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Forms">
       <Version>3.0.0.550146</Version>
     </PackageReference>
@@ -156,6 +159,27 @@
     <PackageReference Include="ZXing.Net.Mobile.Forms">
       <Version>2.3.2</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\code.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\cam.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\cal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\time.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\Placed\Placed.projitems" Label="Shared" />

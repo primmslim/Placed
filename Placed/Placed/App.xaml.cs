@@ -11,8 +11,8 @@ namespace Placed
 		{
 			InitializeComponent();
 
-            MainPage = new NavigationPage(new MainPage());
-
+            //MainPage = new NavigationPage(new MainPage());
+            MainPage = new SideMenu();
 
 		}
 

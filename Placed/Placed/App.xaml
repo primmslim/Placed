@@ -3,6 +3,34 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Placed.App">
 	<Application.Resources>
-    
+        <ResourceDictionary>
+            <Color x:Key="DarkPrimary">#D32F2F</Color>
+            <Color x:Key="LightPrimary">#FFCDD2</Color>
+            <Color x:Key="Primary">#F44336</Color>
+            <Color x:Key="TextIcons">#FFFFFF</Color>
+            <Color x:Key="Accent">#FF9800</Color>
+            <Color x:Key="PrimaryText">#212121</Color>
+            <Color x:Key="SecondaryText">#757575</Color>
+            <Color x:Key="Divider">#BDBDBD</Color>
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource Accent}"/>
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{StaticResource Primary}" />
+                
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource PrimaryText}" />
+            </Style>
+            <Style x:Key="SidebarButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource DarkPrimary}"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            </Style>
+            
+                   
+        </ResourceDictionary>
 	</Application.Resources>
 </Application>

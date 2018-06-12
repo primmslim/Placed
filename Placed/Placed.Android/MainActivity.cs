@@ -26,6 +26,7 @@ namespace Placed.Droid
             ZXing.Net.Mobile.Forms.Android.Platform.Init();
 
             LoadApplication(new App());
+            Window.SetStatusBarColor(Android.Graphics.Color.Argb(255, 211, 47, 47));
 
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)

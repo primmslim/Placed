@@ -51,6 +51,11 @@ namespace Placed
             Navigation.PushAsync(new AddRake());
             
         }
+
+        private void RakeList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            ((ListView)sender).SelectedItem = null;
+        }
     }
 
 

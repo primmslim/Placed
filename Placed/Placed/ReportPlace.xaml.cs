@@ -85,8 +85,8 @@ namespace Placed
             rl.SaveList();
 
             MessagingCenter.Send<ContentPage>(this, "RefreshMainPage");
-            Navigation.PopAsync();
-            Navigation.PopAsync();
+            Navigation.PopToRootAsync();
+
         }
 
         private async void StartScan_Clicked(object sender, EventArgs e)
